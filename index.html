@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jurnal SINTA 1 – Kejar-kejaran Ilmu</title>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--wall:#fff1c9;--wall2:#ffe29a;--brick:#d94a38;--sky:#3aa7e0;--cheese:#ffc928;--ink:#2b1d14;--card:#ffffff;--wood:#a8683a;--wood2:#7d4724;--mint:#5ccf9a;--grape:#8b5cf6}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:'Nunito','Trebuchet MS',system-ui,sans-serif;color:var(--ink);min-height:100vh;overflow-x:hidden;
+background:repeating-linear-gradient(90deg,var(--wall) 0 46px,var(--wall2) 46px 92px);background-attachment:fixed}
+body::after{content:"";position:fixed;left:0;right:0;bottom:0;height:34px;background:repeating-linear-gradient(90deg,var(--wood) 0 90px,var(--wood2) 90px 93px);border-top:6px solid var(--ink);z-index:0;pointer-events:none}
+#bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.chase{position:absolute;bottom:34px;left:-200px;font-size:46px;white-space:nowrap;animation:run 11s linear infinite}
+.chase span{display:inline-block;animation:hop .35s ease-in-out infinite alternate}
+.chase span+span{margin-left:14px;font-size:62px;animation-delay:-.15s}
+.chase.two{animation-duration:17s;animation-delay:-6s;font-size:34px}
+.chase.two span+span{font-size:48px}
+@keyframes run{to{transform:translateX(calc(100vw + 420px))}}
+@keyframes hop{to{transform:translateY(-12px) rotate(-6deg)}}
+.hole{position:absolute;bottom:34px;width:64px;height:48px;background:#2b1d14;border-radius:64px 64px 0 0;border:5px solid #7d4724}
+.chz{position:absolute;font-size:34px;animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-22px) rotate(12deg)}}
+.wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:14px 16px 90px}
+header{text-align:center;padding:20px 8px 0}
+h1{font-family:'Bangers','Impact',sans-serif;font-weight:400;font-size:clamp(2.4rem,8vw,4.6rem);margin:0;line-height:1;letter-spacing:2px;color:var(--brick);-webkit-text-stroke:2px var(--ink);paint-order:stroke fill;text-shadow:5px 5px 0 var(--cheese),7px 7px 0 var(--ink);transform:rotate(-2deg)}
+.sub{font-weight:800;margin:16px 0 0;font-size:1.05rem}
+.hero{display:flex;gap:20px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.hero svg{width:min(230px,52vw);height:auto;filter:drop-shadow(5px 6px 0 #2b1d1455);animation:wob 3s ease-in-out infinite}
+@keyframes wob{50%{transform:rotate(3deg) translateY(-6px)}}
+.me{background:var(--card);border:4px solid var(--ink);border-radius:22px;padding:16px 20px;max-width:520px;text-align:left;box-shadow:8px 8px 0 var(--ink)}
+.me h2{font-family:'Bangers',sans-serif;font-weight:400;letter-spacing:1px;margin:0 0 6px;font-size:1.7rem;color:var(--sky)}
+.me p{margin:5px 0;line-height:1.45}
+.pill{display:inline-block;background:var(--mint);border:2px solid var(--ink);border-radius:99px;padding:1px 12px;font-weight:800;font-size:.85rem}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin:26px 0 12px;align-items:center}
+.tools input{flex:1 1 240px;padding:13px 18px;border-radius:99px;border:4px solid var(--ink);font:inherit;font-weight:700;background:#fff;color:var(--ink)}
+.chip{border:4px solid var(--ink);background:#fff;color:var(--ink);border-radius:99px;padding:8px 16px;font:inherit;font-weight:800;cursor:pointer;box-shadow:3px 3px 0 var(--ink);transition:transform .12s}
+.chip:hover{transform:translate(-2px,-2px) rotate(-2deg)}
+.chip[aria-pressed=true]{background:var(--cheese)}
+.count{font-weight:800;margin:0 0 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:20px}
+.card{background:var(--card);border:4px solid var(--ink);border-radius:22px;padding:16px;cursor:pointer;text-align:left;font:inherit;color:var(--ink);box-shadow:7px 7px 0 var(--ink);transition:transform .18s,box-shadow .18s}
+.card:nth-child(3n+1){background:#e9f6ff}.card:nth-child(3n+2){background:#fff7d6}.card:nth-child(3n){background:#ffe8e3}
+.card:hover,.card:focus-visible{transform:translate(-4px,-6px) rotate(-1.5deg);box-shadow:12px 13px 0 var(--ink);outline:none}
+.card .ic{font-size:2.4rem;display:block}
+.card h3{margin:6px 0 4px;font-size:1.05rem;line-height:1.25}
+.card .fld{font-size:.9rem;margin:0 0 10px;opacity:.85}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:.75rem;font-weight:800;padding:2px 10px;border-radius:99px;border:2px solid var(--ink);background:#fff}
+.tag.s1{background:var(--cheese)}.tag.ok{background:var(--mint)}.tag.no{background:#ffb4a8}.tag.q{background:#d4c2ff}
+.empty{text-align:center;font-size:1.2rem;font-weight:800;padding:30px}
+footer{position:relative;z-index:1;text-align:center;padding:10px 16px 60px;font-weight:700}
+footer p{margin:4px 0;font-size:.9rem}
+#ov{position:fixed;inset:0;z-index:20;background:#2b1d14cc;display:none;align-items:center;justify-content:center;padding:16px;padding-top:calc(16px + env(safe-area-inset-top,0px))}
+#ov.on{display:flex}
+.dlg{background:#fffdf2;border:5px solid var(--ink);border-radius:26px;width:min(720px,100%);max-height:100%;overflow:auto;padding:22px;position:relative;animation:pop .4s cubic-bezier(.2,1.5,.4,1);box-shadow:10px 10px 0 var(--cheese)}
+@keyframes pop{from{transform:scale(.2) rotate(8deg);opacity:0}}
+.x{position:absolute;right:12px;top:12px;border:3px solid var(--ink);background:var(--brick);color:#fff;font:inherit;font-weight:800;width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:1.1rem}
+.dlg h2{font-family:'Bangers',sans-serif;font-weight:400;letter-spacing:1px;margin:0 46px 4px 0;font-size:1.8rem;line-height:1.15;color:var(--brick)}
+.dlg .big{font-size:3rem;float:left;margin:0 12px 0 0}
+.dl{display:grid;grid-template-columns:minmax(110px,32%) 1fr;margin:16px 0;border:3px solid var(--ink);border-radius:14px;overflow:hidden}
+.dl dt,.dl dd{margin:0;padding:9px 12px;border-bottom:2px solid #2b1d1433}
+.dl dt{background:var(--wall2);font-weight:800}
+.warn{background:#fff1b8;border:3px solid var(--ink);border-left-width:10px;border-radius:12px;padding:10px 14px;margin:10px 0;line-height:1.4;font-weight:700}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.btn{display:inline-block;text-decoration:none;background:var(--brick);color:#fff;font-weight:800;padding:11px 20px;border-radius:99px;border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink)}
+.btn.alt{background:var(--sky)}
+:focus-visible{outline:4px solid var(--grape);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media(max-width:520px){.dl{grid-template-columns:1fr}.dl dt{border-bottom:0}}
+</style>
+</head>
+<body>
+<div id="bg" aria-hidden="true">
+<div class="hole" style="left:3%"></div><div class="hole" style="right:4%"></div>
+<span class="chz" style="left:8%;top:22%">🧀</span><span class="chz" style="right:6%;top:40%;animation-delay:-2s">🧀</span><span class="chz" style="left:52%;top:68%;animation-delay:-3s;font-size:26px">🧀</span>
+<div class="chase"><span>🐭</span><span>🐈</span></div>
+<div class="chase two"><span>🐭</span><span>🐈‍⬛</span></div>
+</div>
+<div class="wrap">
+<header>
+<h1>Jurnal SINTA 1:<br>Kejar-kejaran Ilmu!</h1>
+<p class="sub">Kejar 9 jurnal ilmiah Indonesia sebelum tikusnya kabur – klik kartu untuk zoom ke detail</p>
+<div class="hero">
+<svg viewBox="0 0 220 200" role="img" aria-label="Lubang tikus dengan keju besar">
+<path d="M10 190h200" stroke="#2b1d14" stroke-width="8" stroke-linecap="round"/>
+<path d="M40 190v-70a70 70 0 01140 0v70z" fill="#2b1d14" stroke="#7d4724" stroke-width="10"/>
+<path d="M60 190l50-70 60 70z" fill="#ffc928" stroke="#2b1d14" stroke-width="5" stroke-linejoin="round" transform="translate(0,-8)"/>
+<circle cx="100" cy="168" r="7" fill="#e8a800" stroke="#2b1d14" stroke-width="3"/><circle cx="135" cy="176" r="5" fill="#e8a800" stroke="#2b1d14" stroke-width="3"/>
+<circle cx="92" cy="106" r="10" fill="#fff" stroke="#2b1d14" stroke-width="3"/><circle cx="124" cy="106" r="10" fill="#fff" stroke="#2b1d14" stroke-width="3"/>
+<circle cx="95" cy="108" r="4" fill="#2b1d14"/><circle cx="127" cy="108" r="4" fill="#2b1d14"/>
+</svg>
+<div class="me">
+<h2>Halo! Saya Joshua Irawan 👋</h2>
+<p><span class="pill">PKL</span> Siswa magang Al Muhtadin, Depok</p>
+<p>Dibimbing oleh <b>Pak Riadi Marta Dinata, S.Ti., M.Kom</b> – Kalab Komputer FSTT ISTN.</p>
+<p>Data jurnal bersumber dari <a href="https://sinta.kemdiktisaintek.go.id/journals" target="_blank" rel="noopener">SINTA Kemdiktisaintek</a>, diverifikasi per 18 November 2026.</p>
+</div>
+</div>
+</header>
+<div class="tools">
+<input id="q" type="search" placeholder="🔍 Cari nama jurnal, bidang, atau penerbit…" aria-label="Cari jurnal">
+<button class="chip" data-f="all" aria-pressed="true">Semua</button>
+<button class="chip" data-f="sc" aria-pressed="false">Scopus ✔</button>
+<button class="chip" data-f="free" aria-pressed="false">APC ≤ USD 150</button>
+</div>
+<p class="count" id="cnt"></p>
+<main class="grid" id="grid"></main>
+</div>
+<footer>
+<p>🧀 Dibuat oleh Joshua Irawan – PKL Al Muhtadin Depok 🧀</p>
+<p>Info bisa berubah. Cek ulang APC, kuartil, dan status submission di situs resmi tiap jurnal sebelum mengirim naskah.</p>
+</footer>
+<div id="ov" role="dialog" aria-modal="true" aria-label="Detail jurnal"><div class="dlg" id="dlg"></div></div>
+
+<script>
+// [nama, bidang, p-ISSN, e-ISSN, scopus(1/0), kuartil, APC, frekuensi, penerbit, bahasa, review/publikasi, catatan, url, ikon, apcMurah]
+var J=[
+["Jurnal Medik Veteriner (JMV)","Kedokteran hewan & kesehatan hewan","2615-7497","2581-012X",1,"Q3 (SCImago 2025, SJR 0,194)","Maksimal Rp6.500.000 / USD 400 (DOAJ); ada waiver","2x/tahun: Apr, Okt","FKH Universitas Airlangga & PDHI","Inggris","Review: tidak ditemukan; publikasi rata-rata 12 minggu (DOAJ)","Tarif lama Rp150.000/Rp500.000 di arsip artikel tidak boleh dipakai sebagai APC terbaru. SINTA 1 (SK 169/E/KPT/2024).","https://e-journal.unair.ac.id/JMV/","🐕",0],
+["Journal of Education and Learning (EduLearn)","Pendidikan, e-learning, teknologi pendidikan","2089-9823","2302-9277",1,"Q3 (SCImago 2025, SJR 0,328)","USD 475 (multi-penulis, 8 halaman pertama); penulis tunggal USD 950","4x/tahun: Feb, Mei, Agu, Nov","Intelektual Pustaka Media Utama & IAES","Inggris","8–12 minggu (single-blind, min. 3 reviewer)","Pengumuman 30 Jan 2026 menyebut 6 edisi/tahun, tetapi arsip menunjukkan 4 edisi; konfirmasi ke pengelola. Tambahan USD 50 per halaman di atas 8.","https://edulearn.intelektual.org/index.php/EduLearn","🎓",0],
+["International Journal of Advances in Applied Sciences (IJAAS)","Ilmu terapan, teknik, teknologi informasi","2252-8814","2722-2594",1,"Q4 (SCImago 2025)","USD 395 (8 halaman pertama)","4x/tahun: Mar, Jun, Sep, Des","Intelektual Pustaka Media Utama & IAES","Inggris","8–12 minggu (halaman submission menyebut 30–60 hari)","Halaman Call for Papers lama masih USD 275; gunakan USD 395 dan konfirmasi ke editor. Tambahan USD 50/halaman. Artikel ditolak tidak dikenai biaya.","https://ijaas.iaescore.com/index.php/IJAAS","💻",0],
+["Journal of Degraded and Mining Lands Management (JDMLM)","Lahan terdegradasi, bekas tambang, kualitas tanah","2339-076X","2502-2458",1,"Q3 (SCImago 2025, SJR 0,286)","± USD 100 (data DOAJ, perlu konfirmasi editor)","4x/tahun: Jan, Apr, Jul, Okt","IRC-MEDMIND & Departemen Tanah, Universitas Brawijaya","Inggris","Komentar reviewer target 4 minggu; terbit ± 1 bulan setelah diterima","APC bersumber dari direktori eksternal, bukan halaman biaya resmi OJS. Jangan dijadikan tarif final.","https://jdmlm.ub.ac.id/index.php/jdmlm","🌍",1],
+["Scientific Contributions Oil and Gas (SCOG)","Minyak & gas bumi, geologi, geofisika","2089-3361","2541-0520",1,"Q4 (SJR 2025); CiteScore: Q3 di Geophysics","USD 220 / Rp3.500.000 (belum termasuk pajak)","4x/tahun: Mar, Jun, Sep, Des","Testing Center for Oil and Gas LEMIGAS","Inggris","Tidak ditemukan (double-blind, min. 2 reviewer)","Jangan mencampur SJR dan CiteScore. Untuk acuan SCImago, catat Q4.","https://journal.lemigas.esdm.go.id/index.php/SCOG","🛢️",0],
+["Jurnal Kimia VALENSI","Kimia teoretis, lingkungan, material, bahan alam","2460-6065","2548-3013",1,"Q4 (SCImago 2025, SJR 0,181)","Rp3.500.000 (Indonesia) / USD 250 (internasional)","2x/tahun: Mei, Nov","Departemen Kimia, UIN Syarif Hidayatullah Jakarta","Indonesia & Inggris (Inggris dianjurkan)","Review ± 8 minggu; publikasi rata-rata 24 minggu (DOAJ)","Coverage Scopus tercatat 2019–2025 (sumber lain 2019–2026); kelanjutannya cek di Scopus Sources. Dokumen ini muncul dua kali dan digabung.","https://journal.uinjkt.ac.id/index.php/valensi","⚗️",0],
+["Journal of ICT Research and Applications (JICTRA)","Informasi & komunikasi, jaringan, sinyal, RPL","2337-5787","2338-5499",1,"Q4 (SJR 2025: 0,160); CiteScore sumber sekunder Q2/Q3","USD 150 per artikel diterima (maks. 15 halaman); waiver tersedia","3x/tahun (bulan belum terverifikasi)","Direktorat Riset & Pengabdian, ITB","Inggris","± 24 minggu (DOAJ); single-blind, min. 2 reviewer","Coverage Scopus pada SCImago tercatat 2013–2025. Dokumen ini muncul dua kali dan digabung.","https://journals.itb.ac.id/index.php/jictra","📡",1],
+["Journal of Tropical Biodiversity and Biotechnology (JTBB)","Biodiversitas tropis, ekologi, bioteknologi","2540-9573","2540-9581",1,"Q3 (sumber sekunder, belum terverifikasi di SCImago)","USD 250 (waiver bisa diajukan)","4x/tahun: Mar, Jun, Sep, Des (continuous publication)","Fakultas Biologi, Universitas Gadjah Mada","Inggris","Normalnya 3 bulan (double-blind, min. 2 reviewer)","Tautan lama (/v3/jtbb) sudah diganti OJS baru. DOAJ menghapus jurnal ini sejak 5 April 2025.","https://journal.ugm.ac.id/jtbb","🌴",0],
+["Journal of Biomedicine and Translational Research (JBTR)","Kedokteran klinis, molekuler, tropis, imunologi","p-ISSN tidak ditemukan","2503-2178",0,"Belum terverifikasi","Rp2.500.000 (halaman APC lain: Rp1.000.000)","3x/tahun: Apr, Agu, Des","Fakultas Kedokteran, Universitas Diponegoro","Inggris","Tidak ada estimasi; pemberitahuan penolakan maksimal 3 bulan","Belum ada bukti Scopus Source aktif, jangan dicatat Scopus Indexed. Biaya berbeda antar halaman resmi, konfirmasi ke editorial office.","https://ejournal2.undip.ac.id/index.php/jbtr/index","🏥",0]
+];
+var grid=document.getElementById('grid'),cnt=document.getElementById('cnt'),qi=document.getElementById('q'),ov=document.getElementById('ov'),dlg=document.getElementById('dlg'),filt='all';
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function render(){
+  var t=qi.value.toLowerCase(),n=0;grid.innerHTML='';
+  J.forEach(function(j,i){
+    if(filt==='sc'&&!j[4])return;if(filt==='free'&&!j[14])return;
+    if(t&&(j[0]+j[1]+j[8]).toLowerCase().indexOf(t)<0)return;
+    n++;var b=document.createElement('button');b.className='card';
+    b.innerHTML='<span class="ic">'+j[13]+'</span><h3>'+esc(j[0])+'</h3><p class="fld">'+esc(j[1])+'</p><div class="tags"><span class="tag s1">SINTA 1</span><span class="tag '+(j[4]?'ok':'no')+'">'+(j[4]?'Scopus ✔':'Scopus belum terverifikasi')+'</span><span class="tag q">'+esc(j[5].split(' (')[0].split(';')[0])+'</span></div>';
+    b.onclick=function(){location.hash='j-'+(i+1)};grid.appendChild(b);
+  });
+  cnt.textContent='Menampilkan '+n+' dari '+J.length+' jurnal';
+  if(!n)grid.innerHTML='<div class="empty">🧀 Tikusnya kabur! Tidak ada jurnal yang cocok.</div>';
+}
+function openJ(i){
+  var j=J[i];
+  var rows=[['p-ISSN / e-ISSN',j[2]+' / '+j[3]],['Akreditasi','SINTA 1'],['Scopus',j[4]?'Terindeks':'Belum terverifikasi / tidak tercantum'],['Kuartil',j[5]],['APC / biaya',j[6]],['Frekuensi',j[7]],['Penerbit',j[8]],['Bahasa',j[9]],['Review / publikasi',j[10]]];
+  dlg.innerHTML='<button class="x" aria-label="Tutup" onclick="location.hash=\'\'">✕</button><span class="big">'+j[13]+'</span><h2>'+esc(j[0])+'</h2><p style="margin:4px 0 0;font-weight:700">'+esc(j[1])+'</p><dl class="dl" style="clear:both">'+rows.map(function(r){return'<dt>'+r[0]+'</dt><dd>'+esc(r[1])+'</dd>'}).join('')+'</dl><div class="warn">📌 '+esc(j[11])+'</div><div class="btns"><a class="btn" href="'+j[12]+'" target="_blank" rel="noopener">Buka situs jurnal</a><a class="btn alt" href="https://sinta.kemdiktisaintek.go.id/journals" target="_blank" rel="noopener">Daftar SINTA</a></div>';
+  ov.classList.add('on');document.body.style.overflow='hidden';dlg.scrollTop=0;
+}
+function route(){
+  var m=/^#j-(\d+)$/.exec(location.hash);
+  if(m&&J[m[1]-1])openJ(m[1]-1);else{ov.classList.remove('on');document.body.style.overflow=''}
+}
+window.addEventListener('hashchange',route);
+ov.addEventListener('click',function(e){if(e.target===ov)location.hash=''});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&ov.classList.contains('on'))location.hash=''});
+qi.addEventListener('input',render);
+document.querySelectorAll('.chip').forEach(function(c){c.onclick=function(){filt=c.dataset.f;document.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed',x===c)});render()}});
+render();route();
+</script>
+</body>
+</html>
